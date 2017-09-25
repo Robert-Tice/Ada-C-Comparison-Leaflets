@@ -1,9 +1,19 @@
 project Sieve_Of_Eratosthenes is
+   type Modes is ("Compile", "Analyze");
+   Mode : Modes := external ("MODE", "Compile");
 
-   for Source_Dirs use ("ada", "c");
+   case Mode is
+      when "Compile" =>
+         for Source_Dirs use ("ada", "c");
+         for Main use ("main.adb", "sieve_of_eratosthenes.c");
+         for Languages use ("Ada", "C");
+      when "Analyze" =>
+         for Source_Dirs use ("ada");
+         for Main use ("main.adb");
+         for Languages use ("Ada");
+   end case;
+
    for Object_Dir use "obj";
-   for Main use ("main.adb", "sieve_of_eratosthenes.c");
-   for Languages use ("Ada", "C");
 
    package Builder is
       for Executable_Suffix use ".exe";
