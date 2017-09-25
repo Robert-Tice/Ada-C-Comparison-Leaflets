@@ -7,7 +7,7 @@ package Stack_Container is
 
    type Stack is tagged record
       Stk : Index_Array (1 .. Max);
-      Top : Integer := 1;
+      Top : Integer := 0;
    end record;
    
    function IsEmpty (Self : Stack) return Boolean is

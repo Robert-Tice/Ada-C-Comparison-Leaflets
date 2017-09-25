@@ -14,6 +14,8 @@ procedure Main is
       use Character_Stack;
 
       St : Stack;
+      PP : Character;
+      pragma Unreferenced (PP);
    begin
       for I in S'Range loop
          case S (I) is
@@ -24,11 +26,11 @@ procedure Main is
                   return False;
                else
                   if St.Peek = '{' and S (I) = '}' then
-                     return True;
+                     PP := St.Pop;
                   elsif St.Peek = '[' and S (I) = ']' then
-                     return True;
+                     PP := St.Pop;
                   elsif St.Peek = '(' and S (I) = ')' then
-                     return True;
+                     PP := St.Pop;
                   else
                      return False;
                   end if;
@@ -37,7 +39,8 @@ procedure Main is
                null;
          end case;
       end loop;
-      return False;
+
+      return St.IsEmpty;
    end IsBalanced;
 
    type String_Ptr is access all String;
@@ -46,11 +49,13 @@ procedure Main is
    A : aliased String := "{[()]}";
    B : aliased String := "{[(])}";
    C : aliased String := "{{[[(())]]}}";
+   D : aliased String := "((((((())";
 
 
    Msgs : String_List := (1 => A'Access,
                           2 => B'Access,
-                          3 => C'Access);
+                          3 => C'Access,
+                          4 => D'Access);
 
 begin
    for I in Msgs'Range loop

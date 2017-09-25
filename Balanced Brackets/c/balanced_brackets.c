@@ -60,39 +60,52 @@ int isBalanced(const char s[])
     int i = 0;
     stack st;
 
+    st.top = -1;
+
     while(s[i]) {
-	if(s[i] == '{' || s[i] == '[' || s[i] == '(')
-	    push(&st, s[i]);
-	else if(s[i] == '}' || s[i] == ']' || s[i] == ')') {
-	    if(isempty(&st))
-		return 0;
-	    else {
-		if(peek(&st) == '{' && s[i] == '}')
-		    return 1;
-		else if(peek(&st) == '[' && s[i] == ']')
-		    return 1;
-		else if(peek(&st) == '(' && s[i] == ')')
-		    return 1;
-		else
+	switch(s[i]) {
+	    case '{':
+	    case '[':
+	    case '(':
+		push(&st, s[i]);
+		break;
+	    case '}':
+		if(isempty(&st) || (peek(&st) != '{')) {
 		    return 0;
-	    }
+		}
+		pop(&st);
+		break;
+	    case ']':
+		if(isempty(&st) || (peek(&st) != '[')) {
+		    return 0;
+		}
+		pop(&st);
+		break;
+	    case ')':
+		if(isempty(&st) || (peek(&st) != '(')) {
+		    return 0;
+		}
+		pop(&st);
+		break;
 	}
 	i++;
     }
-    return 0;
+
+    return isempty(&st);
 }
 
 int main(int argc, char** argv)
 {
     int i;
 
-    const char *msgs[3] = {
-			   "{[()]}",
-			   "{[(])}",
-			   "{{[[(())]]}}"};
+    const char *msgs[4] = {
+			   "{[()]}",       // yes
+			   "{[(])}",       // no
+			   "{{[[(())]]}}",  // yes
+			   "((((((())"};    // no
 
 
-    for(i = 0; i < 3; i++) {
+    for(i = 0; i < 4; i++) {
 	if(isBalanced(msgs[i])) {
 	    printf("C - YES\n");
 	}
