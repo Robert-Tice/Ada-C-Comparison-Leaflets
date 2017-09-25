@@ -1,0 +1,15 @@
+project Register_Mapping is
+
+   for Source_Dirs use ("ada", "c");
+   for Object_Dir use "obj";
+   for Main use ("main.adb", "register_mapping.c");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("main.adb") use "ada_register_mapping";
+      for Executable ("register_mapping.c") use "c_register_mapping";
+   end Builder;
+
+end Register_Mapping;
+

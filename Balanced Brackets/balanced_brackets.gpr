@@ -1,0 +1,19 @@
+project Balanced_Brackets is
+
+   for Source_Dirs use ("ada", "c");
+   for Object_Dir use "obj";
+   for Main use ("balanced_brackets.c", "main.adb");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("balanced_brackets.c") use "c_balanced_brackets";
+      for Executable ("main.adb") use "ada_balanced_brackets";
+   end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-g");
+   end Compiler;
+
+end Balanced_Brackets;
+

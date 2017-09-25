@@ -1,0 +1,15 @@
+project Sieve_Of_Eratosthenes is
+
+   for Source_Dirs use ("ada", "c");
+   for Object_Dir use "obj";
+   for Main use ("main.adb", "sieve_of_eratosthenes.c");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("main.adb") use "ada_sieve_of_eratosthenes";
+      for Executable ("sieve_of_eratosthenes.c") use "c_sieve_of_eratosthenes";
+   end Builder;
+
+end Sieve_Of_Eratosthenes;
+

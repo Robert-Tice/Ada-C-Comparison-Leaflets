@@ -1,0 +1,15 @@
+project Bubble_Sort is
+
+   for Source_Dirs use ("ada", "c");
+   for Object_Dir use "obj";
+   for Main use ("bubble_sort.c", "main.adb");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("bubble_sort.c") use "c_bubble_sort";
+      for Executable ("main.adb") use "ada_bubble_sort";
+   end Builder;
+
+end Bubble_Sort;
+

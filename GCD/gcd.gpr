@@ -1,0 +1,15 @@
+project Gcd is
+
+   for Source_Dirs use ("ada", "c");
+   for Object_Dir use "obj";
+   for Main use ("gcd.c", "main.adb");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("gcd.c") use "c_gcd";
+      for Executable ("main.adb") use "ada_gcd";
+   end Builder;
+
+end Gcd;
+

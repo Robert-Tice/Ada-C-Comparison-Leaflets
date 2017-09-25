@@ -1,0 +1,15 @@
+project Binary_Search is
+
+   for Source_Dirs use ("c", "ada");
+   for Object_Dir use "obj";
+   for Main use ("binary_search.c", "main.adb");
+   for Languages use ("Ada", "C");
+
+   package Builder is
+      for Executable_Suffix use ".exe";
+      for Executable ("binary_search.c") use "c_binary_search";
+      for Executable ("main.adb") use "ada_binary_search";
+   end Builder;
+
+end Binary_Search;
+
