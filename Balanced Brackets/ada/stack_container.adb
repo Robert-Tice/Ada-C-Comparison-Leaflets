@@ -7,10 +7,6 @@ package body Stack_Container is
    function Pop (Self : in out Stack) return Index_Type is
       Data : Index_Type;
    begin
-      if Self.IsEmpty then
-         raise Empty_Exception;
-      end if;
-
       Data := Self.Peek;
       Self.Top := Self.Top - 1;
       return Data;
@@ -25,10 +21,6 @@ package body Stack_Container is
       Data : Index_Type)
    is
    begin
-      if Self.IsFull then
-         raise Full_Exception;
-      end if;
-
       Self.Top := Self.Top + 1;
       Self.Stk (Self.Top) := Data;
    end Push;
