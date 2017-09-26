@@ -15,19 +15,17 @@ package Stack_Container is
 
    function IsFull (Self : Stack) return Boolean is
      (Self.Top = Self.Stk'Last);
-
-   Full_Exception, Empty_Exception : exception;
     
    function Peek (Self : Stack) return Index_Type is
      (Self.Stk (Self.Top));
 
    function Pop (Self : in out Stack) return Index_Type
-     with Pre => not IsEmpty (Self => Self) or else raise Empty_Exception,
+     with Pre => not IsEmpty (Self => Self),
      Post => Self.Top = Self.Top'Old - 1;
   
    procedure Push (Self : in out Stack;
                    Data : Index_Type)
-     with Pre => not IsFull (Self => Self) or else raise Full_Exception,
+     with Pre => not IsFull (Self => Self),
      Post => Self.Top = Self.Top'Old + 1;
    
 
