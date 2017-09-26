@@ -21,6 +21,11 @@ int isfull(stack* st)
     return 0;
 }
 
+int size(stack* s)
+{
+    return s->top;
+}
+
 char peek(stack* st)
 {
     return st->stk[st->top];
