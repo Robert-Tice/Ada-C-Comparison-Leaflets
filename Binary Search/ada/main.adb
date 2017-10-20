@@ -18,19 +18,17 @@ is
 
          if Arr (Mid) = X then
             return Mid;
-         end if;
-
-         if Arr (Mid) > X then
+         elsif Arr (Mid) > X then
             return BinarySearch (Arr => Arr,
                                  L   => L,
                                  R   => Mid - 1,
                                  X   => X);
+         else
+            return BinarySearch (Arr => Arr,
+                                 L   => Mid + 1,
+                                 R   => R,
+                                 X   => X);
          end if;
-
-         return BinarySearch (Arr => Arr,
-                              L   => Mid + 1,
-                              R   => R,
-                              X   => X);
       end if;
 
       return -1;

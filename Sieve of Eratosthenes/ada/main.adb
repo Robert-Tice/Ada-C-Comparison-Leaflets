@@ -26,13 +26,13 @@ procedure Main is
    V : Array_Type (1 .. Last) := (1      => False,
                                   others => True);
 begin
-   Put_Line ("Ada - Print all primes up to " & Last'Img);
+   Put_Line ("Ada - Print all primes up to" & Last'Img);
    Sieve (Arr => V);
    for I in V'Range loop
       if V (I) then
-         Put (I'Img &  " ");
+         Put (I'Img);
       end if;
    end loop;
 
-   Put_Line ("");
+   New_Line;
 end Main;

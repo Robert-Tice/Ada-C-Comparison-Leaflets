@@ -2,9 +2,6 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Main is
 
-   Rows : constant := 4;
-   Cols : constant := 8;
-
    type Grid_Type is array (Natural range <>, Natural range <>) of Integer;
 
    Grid : Grid_Type := ((1, 1, 0, 1, 0, 0, 1, 1),
@@ -16,13 +13,9 @@ procedure Main is
                      Y : Integer)
                      return Boolean
    is
-   begin
-      return not (X < Grid'First (1) or else
-                  Y < Grid'First (2) or else
-                  X > Grid'Last (1) or else
-                  Y > Grid'Last (2) or else
-                  Grid (X, Y) < 1);
-   end IsValid;
+     (X in Grid'Range (1) and then
+      Y in Grid'Range (2) and then
+      Grid (X, Y) >= 1);
 
    function Dfs (X : Integer;
                  Y : Integer)
