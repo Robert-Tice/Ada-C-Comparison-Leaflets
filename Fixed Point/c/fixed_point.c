@@ -1,5 +1,9 @@
 #include <math.h>
+
+/* This library is not supported on many platforms and is
+not part of the standard library. This is not portable code. */
 #include <stdfix.h>
+
 #include <stdio.h>
 
 
