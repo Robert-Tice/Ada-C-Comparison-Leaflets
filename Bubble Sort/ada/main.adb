@@ -1,20 +1,18 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-
 procedure Main
 is
    type Array_Type is array (Natural range <>) of Integer;
 
    procedure Swap (Arr : in out Array_Type;
-                   X   : in Natural;
-                   Y   : in Natural)
+                   X   : Natural;
+                   Y   : Natural)
    is
       Temp : Integer := Arr (X);
    begin
       Arr (X) := Arr (Y);
       Arr (Y) := Temp;
    end Swap;
-
 
    procedure BubbleSort (Arr : in out Array_Type)
    is
@@ -30,7 +28,7 @@ is
       end loop;
    end BubbleSort;
 
-   procedure PrintArray (Arr : in Array_Type)
+   procedure PrintArray (Arr : Array_Type)
    is
    begin
       for I in Arr'Range loop
@@ -38,7 +36,6 @@ is
       end loop;
       New_Line (1);
    end PrintArray;
-
 
    Arr : Array_Type (1 .. 10) := (1  => 5,
                                   2  => 9,
@@ -57,4 +54,3 @@ begin
    PrintArray (Arr => Arr);
 
 end Main;
-

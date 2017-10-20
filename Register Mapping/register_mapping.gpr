@@ -6,10 +6,13 @@ project Register_Mapping is
    for Languages use ("Ada", "C");
 
    package Builder is
-      for Executable_Suffix use ".exe";
       for Executable ("main.adb") use "ada_register_mapping";
       for Executable ("register_mapping.c") use "c_register_mapping";
    end Builder;
+
+   package Compiler is
+      for Switches ("Ada") use ("-gnatyg");
+   end Compiler;
 
 end Register_Mapping;
 

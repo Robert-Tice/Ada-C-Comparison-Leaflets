@@ -6,13 +6,12 @@ project Balanced_Brackets is
    for Languages use ("Ada", "C");
 
    package Builder is
-      for Executable_Suffix use ".exe";
       for Executable ("balanced_brackets.c") use "c_balanced_brackets";
       for Executable ("main.adb") use "ada_balanced_brackets";
    end Builder;
 
    package Compiler is
-      for Switches ("ada") use ("-g");
+      for Switches ("ada") use ("-gnatyg");
    end Compiler;
 
 end Balanced_Brackets;

@@ -34,5 +34,5 @@ begin
       end if;
    end loop;
 
-   Put_Line("");
+   Put_Line ("");
 end Main;

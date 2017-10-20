@@ -6,10 +6,9 @@ procedure Main is
 
    MAXSIZE : constant := 100;
 
-
    function IsBalanced (S : String) return Boolean
    is
-      package Character_Stack is new Stack_Container (Max        => 100,
+      package Character_Stack is new Stack_Container (Max        => MAXSIZE,
                                                       Index_Type => Character);
       use Character_Stack;
 
@@ -51,11 +50,10 @@ procedure Main is
    C : aliased String := "{{[[(())]]}}";
    D : aliased String := "((((((())";
 
-
-   Msgs : String_List := (1 => A'Access,
-                          2 => B'Access,
-                          3 => C'Access,
-                          4 => D'Access);
+   Msgs : constant String_List := (1 => A'Access,
+                                   2 => B'Access,
+                                   3 => C'Access,
+                                   4 => D'Access);
 
 begin
    for I in Msgs'Range loop

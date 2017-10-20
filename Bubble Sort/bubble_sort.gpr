@@ -6,10 +6,13 @@ project Bubble_Sort is
    for Languages use ("Ada", "C");
 
    package Builder is
-      for Executable_Suffix use ".exe";
       for Executable ("bubble_sort.c") use "c_bubble_sort";
       for Executable ("main.adb") use "ada_bubble_sort";
    end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatyg");
+   end Compiler;
 
 end Bubble_Sort;
 

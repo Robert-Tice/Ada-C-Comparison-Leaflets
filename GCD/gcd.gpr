@@ -6,10 +6,14 @@ project Gcd is
    for Languages use ("Ada", "C");
 
    package Builder is
-      for Executable_Suffix use ".exe";
       for Executable ("gcd.c") use "c_gcd";
       for Executable ("main.adb") use "ada_gcd";
    end Builder;
+
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatyg");
+   end Compiler;
 
 end Gcd;
 

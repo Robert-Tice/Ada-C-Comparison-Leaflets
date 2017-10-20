@@ -6,10 +6,13 @@ project Binary_Search is
    for Languages use ("Ada", "C");
 
    package Builder is
-      for Executable_Suffix use ".exe";
       for Executable ("binary_search.c") use "c_binary_search";
       for Executable ("main.adb") use "ada_binary_search";
    end Builder;
+
+   package Compiler is
+      for Switches ("ada") use ("-gnatyg");
+   end Compiler;
 
 end Binary_Search;
 

@@ -33,7 +33,8 @@ procedure Main is
       NewY  : Integer := Y;
    begin
       if not IsValid (X => X,
-                      Y => Y) then
+                      Y => Y)
+      then
          return 0;
       end if;
 
@@ -52,7 +53,6 @@ procedure Main is
       return Count;
 
    end Dfs;
-
 
    MaxBlob, CurBlob : Natural := 0;
 begin
