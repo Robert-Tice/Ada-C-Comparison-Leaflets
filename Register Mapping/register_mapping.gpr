@@ -10,9 +10,5 @@ project Register_Mapping is
       for Executable ("register_mapping.c") use "c_register_mapping";
    end Builder;
 
-   package Compiler is
-      for Switches ("Ada") use ("-gnatyg");
-   end Compiler;
-
 end Register_Mapping;
 

@@ -10,9 +10,9 @@ project Sieve_Of_Eratosthenes is
       for Executable ("sieve_of_eratosthenes.c") use "c_sieve_of_eratosthenes";
    end Builder;
 
-   package Compiler is
-      for Switches ("Ada") use ("-gnatyg");
-   end Compiler;
+   package Linker is
+      for Switches ("C") use ("-lm");
+   end Linker;
 
 end Sieve_Of_Eratosthenes;
 

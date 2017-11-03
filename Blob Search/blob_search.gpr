@@ -10,9 +10,5 @@ project Blob_Search is
       for Executable ("main.adb") use "ada_blob_search";
    end Builder;
 
-   package Compiler is
-      for Switches ("ada") use ("-gnatyg");
-   end Compiler;
-
 end Blob_Search;
 

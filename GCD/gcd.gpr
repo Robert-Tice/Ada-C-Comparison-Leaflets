@@ -10,10 +10,5 @@ project Gcd is
       for Executable ("main.adb") use "ada_gcd";
    end Builder;
 
-
-   package Compiler is
-      for Switches ("ada") use ("-gnatyg");
-   end Compiler;
-
 end Gcd;
 

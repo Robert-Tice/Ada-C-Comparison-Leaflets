@@ -1,0 +1,16 @@
+aggregate project Ada_C_Comparison is
+
+   for Project_Files use ("Balanced Brackets/balanced_brackets.gpr",
+                          "Binary Search/binary_search.gpr",
+                          "Blob Search/blob_search.gpr",
+                          "Bubble Sort/bubble_sort.gpr",
+                          "GCD/gcd.gpr",
+                          "Sieve of Eratosthenes/sieve_of_eratosthenes.gpr");
+
+   package Builder is
+      for Global_Compilation_Switches ("Ada") use ("-gnatyg", "-gnatQ");
+
+      for Switches (others) use ("-j0");
+   end Builder;
+
+end Ada_C_Comparison;

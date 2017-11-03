@@ -10,9 +10,5 @@ project Fixed_Point is
       for Executable ("main.adb") use "ada_fixed_point";
    end Builder;
 
-   package Compiler is
-      for Switches ("ada") use ("-gnatyg");
-   end Compiler;
-
 end Fixed_Point;
 

@@ -10,9 +10,5 @@ project Bubble_Sort is
       for Executable ("main.adb") use "ada_bubble_sort";
    end Builder;
 
-   package Compiler is
-      for Switches ("ada") use ("-gnatyg");
-   end Compiler;
-
 end Bubble_Sort;
 

@@ -10,9 +10,5 @@ project Balanced_Brackets is
       for Executable ("main.adb") use "ada_balanced_brackets";
    end Builder;
 
-   package Compiler is
-      for Switches ("ada") use ("-gnatyg");
-   end Compiler;
-
 end Balanced_Brackets;
 
