@@ -60,6 +60,6 @@ begin
       end loop;
    end loop;
 
-   Put_Line ("Ada - Max Blob size: " & MaxBlob'Img);
+   Put_Line ("Ada - Max Blob size:" & MaxBlob'Img);
 
 end Main;

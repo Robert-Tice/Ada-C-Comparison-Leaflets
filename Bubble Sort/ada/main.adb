@@ -32,7 +32,7 @@ is
    is
    begin
       for I in Arr'Range loop
-         Put (" " & Arr (I)'Img);
+         Put (Arr (I)'Img);
       end loop;
       New_Line (1);
    end PrintArray;

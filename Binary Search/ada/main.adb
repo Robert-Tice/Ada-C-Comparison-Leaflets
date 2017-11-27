@@ -54,9 +54,9 @@ begin
                            X   => Find);
 
    if Result < 0 then
-      Put_Line ("Ada - Could not find " & Find'Img & " in list");
+      Put_Line ("Ada - Could not find" & Find'Img & "in list");
    else
-      Put_Line ("Ada - Element " & Find'Img & " found at index " & Result'Img);
+      Put_Line ("Ada - Element" & Find'Img & " found at index" & Result'Img);
    end if;
 
 end Main;

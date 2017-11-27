@@ -23,5 +23,5 @@ procedure Main is
 begin
    C := Gcd (A => A,
              B => B);
-   Put_Line ("Ada - gcd of " & A'Img & " and " & B'Img & " is " & C'Img);
+   Put_Line ("Ada - gcd of" & A'Img & " and" & B'Img & " is" & C'Img);
 end Main;
