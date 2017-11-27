@@ -27,10 +27,10 @@ class RunAllWorkflow:
         self.__console_msg(msg, mode="error")
         self.__console_msg("[workflow stopped]", mode="error")
 
-    def __log_output(self,exec_name, output):
+    def __log_output(self, path, exec_name, output):
         filename = "%s.log" % (exec_name)
 
-        with open(filename, 'w+') as f:
+        with open(os.path.join(path, filename), 'w+') as f:
             f.write(output)
 
     def __do_run_all(self, task):
@@ -60,7 +60,7 @@ class RunAllWorkflow:
                                 self.__error_exit("{} returned an error.".format(exec_name))
                                 return
 
-                            self.__log_output(exec_name, output)
+                            self.__log_output(proj.artifacts_dir(), exec_name, output)
                             break
 
 
