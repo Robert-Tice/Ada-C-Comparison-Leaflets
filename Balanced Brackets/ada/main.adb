@@ -6,7 +6,7 @@ procedure Main is
 
    MAXSIZE : constant := 100;
 
-   function IsBalanced (S : String) return Boolean
+   function Is_Balanced (S : String) return Boolean
    is
       package Character_Stack is
         new Stack_Container (Max          => MAXSIZE,
@@ -15,14 +15,13 @@ procedure Main is
 
       St : Stack;
       PP : Character;
-      pragma Unreferenced (PP);
    begin
       for I in S'Range loop
          case S (I) is
             when '{' | '[' | '(' =>
                St.Push (Data => S (I));
             when '}' | ']' | ')' =>
-               if St.IsEmpty then
+               if St.Is_Empty then
                   return False;
                else
                   if St.Peek = '{' and S (I) = '}' then
@@ -40,8 +39,8 @@ procedure Main is
          end case;
       end loop;
 
-      return St.IsEmpty;
-   end IsBalanced;
+      return St.Is_Empty;
+   end Is_Balanced;
 
    type String_Ptr is access all String;
    type String_List is array (Natural range <>) of String_Ptr;
@@ -58,7 +57,7 @@ procedure Main is
 
 begin
    for I in Msgs'Range loop
-      if IsBalanced (S => Msgs (I).all) then
+      if Is_Balanced (S => Msgs (I).all) then
          Put_Line ("Ada - YES");
       else
          Put_Line ("Ada - NO");
