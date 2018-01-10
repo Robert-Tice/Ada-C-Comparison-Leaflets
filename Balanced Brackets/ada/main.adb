@@ -8,8 +8,9 @@ procedure Main is
 
    function IsBalanced (S : String) return Boolean
    is
-      package Character_Stack is new Stack_Container (Max        => MAXSIZE,
-                                                      Index_Type => Character);
+      package Character_Stack is
+        new Stack_Container (Max          => MAXSIZE,
+                             Element_Type => Character);
       use Character_Stack;
 
       St : Stack;

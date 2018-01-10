@@ -7,7 +7,6 @@ import workflows.promises as promises
 from workflows import task_workflow
 
 
-
 class RunAllWorkflow:
 
     def __init__(self):
