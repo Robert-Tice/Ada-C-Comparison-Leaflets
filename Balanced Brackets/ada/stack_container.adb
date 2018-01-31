@@ -4,12 +4,20 @@ package body Stack_Container is
    -- Pop --
    ---------
 
-   function Pop (Self : in out Stack) return Element_Type is
-      Data : Element_Type;
+   procedure Pop (Self : in out Stack) is
    begin
-      Data := Self.Peek;
       Self.Top := Self.Top - 1;
-      return Data;
+   end Pop;
+
+
+   ---------
+   -- Pop --
+   ---------
+
+   procedure Pop (Self : in out Stack; Data : out Element_Type) is
+   begin
+      Data := Self.Content (Self.Top);
+      Self.Top := Self.Top - 1;
    end Pop;
 
    ----------
@@ -22,7 +30,7 @@ package body Stack_Container is
    is
    begin
       Self.Top := Self.Top + 1;
-      Self.Stk (Self.Top) := Data;
+      Self.Content (Self.Top) := Data;
    end Push;
 
 end Stack_Container;

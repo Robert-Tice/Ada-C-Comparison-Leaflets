@@ -4,32 +4,32 @@ with Stack_Container;
 
 procedure Main is
 
-   MAXSIZE : constant := 100;
+   Max_Stack_Size : constant := 100;
 
-   function Is_Balanced (S : String) return Boolean
-   is
-      package Character_Stack is
-        new Stack_Container (Max          => MAXSIZE,
-                             Element_Type => Character);
-      use Character_Stack;
+   package Characters is
+     new Stack_Container (Max          => Max_Stack_Size,
+                          Element_Type => Character);
+   use Characters;
 
-      St : Stack;
-      PP : Character;
+   function Is_Balanced (Input : String) return Boolean is
+      Chars     : Characters.Stack;
+      Prev_Char : Character;
    begin
-      for I in S'Range loop
-         case S (I) is
+      for Next_Char of Input loop
+         case Next_Char is
             when '{' | '[' | '(' =>
-               St.Push (Data => S (I));
+               Push (Chars, Next_Char);
             when '}' | ']' | ')' =>
-               if St.Is_Empty then
+               if Is_Empty (Chars) then
                   return False;
                else
-                  if St.Peek = '{' and S (I) = '}' then
-                     PP := St.Pop;
-                  elsif St.Peek = '[' and S (I) = ']' then
-                     PP := St.Pop;
-                  elsif St.Peek = '(' and S (I) = ')' then
-                     PP := St.Pop;
+                  Prev_Char := Peek (Chars);
+                  if Prev_Char = '{' and Next_Char = '}' then
+                     Pop (Chars);
+                  elsif Prev_Char = '[' and Next_Char = ']' then
+                     Pop (Chars);
+                  elsif Prev_Char = '(' and Next_Char = ')' then
+                     Pop (Chars);
                   else
                      return False;
                   end if;
@@ -39,16 +39,16 @@ procedure Main is
          end case;
       end loop;
 
-      return St.Is_Empty;
+      return Is_Empty (Chars);
    end Is_Balanced;
 
-   type String_Ptr is access all String;
+   type String_Ptr is access constant String;
    type String_List is array (Natural range <>) of String_Ptr;
 
-   A : aliased String := "{[()]}";
-   B : aliased String := "{[(])}";
-   C : aliased String := "{{[[(())]]}}";
-   D : aliased String := "((((((())";
+   A : aliased constant String := "{[()]}";
+   B : aliased constant String := "{[(])}";
+   C : aliased constant String := "{{[[(())]]}}";
+   D : aliased constant String := "((((((())";
 
    Msgs : constant String_List := (1 => A'Access,
                                    2 => B'Access,
@@ -56,8 +56,8 @@ procedure Main is
                                    4 => D'Access);
 
 begin
-   for I in Msgs'Range loop
-      if Is_Balanced (S => Msgs (I).all) then
+   for Next_String of Msgs loop
+      if Is_Balanced (Next_String.all) then
          Put_Line ("Ada - YES");
       else
          Put_Line ("Ada - NO");
