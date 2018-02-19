@@ -5,6 +5,10 @@ project Balanced_Brackets is
    for Main use ("balanced_brackets.c", "main.adb");
    for Languages use ("Ada", "C");
 
+   package Compiler is
+       for Switches ("Ada") use ("-gnata", "-gnatwa");
+    end Compiler;
+
    package Builder is
       for Executable ("balanced_brackets.c") use "c_balanced_brackets";
       for Executable ("main.adb") use "ada_balanced_brackets";
