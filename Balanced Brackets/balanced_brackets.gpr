@@ -15,4 +15,3 @@ project Balanced_Brackets is
    end Builder;
 
 end Balanced_Brackets;
-
