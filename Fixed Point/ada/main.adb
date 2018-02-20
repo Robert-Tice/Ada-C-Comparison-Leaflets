@@ -4,7 +4,7 @@ with Ada.Text_IO; use Ada.Text_IO;
 procedure Main is
 
    Eps : constant := Pi / 2.0 ** 15;
-   type Radians is delta 0.0001 range -Pi .. Pi - Eps   --  internal rep 16 bit
+   type Radians is delta Eps range -Pi .. Pi - Eps   --  internal rep 16 bit
      with Small => Eps;                                 --  signed integer
 
    D : Radians := Radians'First;

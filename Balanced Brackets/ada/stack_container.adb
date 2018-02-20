@@ -9,7 +9,6 @@ package body Stack_Container is
       Self.Top := Self.Top - 1;
    end Pop;
 
-
    ---------
    -- Pop --
    ---------
