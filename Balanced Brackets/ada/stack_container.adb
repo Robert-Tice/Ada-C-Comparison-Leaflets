@@ -13,7 +13,9 @@ package body Stack_Container is
    -- Pop --
    ---------
 
-   procedure Pop (Self : in out Stack; Data : out Element_Type) is
+   procedure Pop (Self : in out Stack;
+                  Data : out Element_Type)
+   is
    begin
       Data := Self.Content (Self.Top);
       Self.Top := Self.Top - 1;
@@ -23,9 +25,8 @@ package body Stack_Container is
    -- Push --
    ----------
 
-   procedure Push
-     (Self : in out Stack;
-      Data : Element_Type)
+   procedure Push (Self : in out Stack;
+                  Data : Element_Type)
    is
    begin
       Self.Top := Self.Top + 1;

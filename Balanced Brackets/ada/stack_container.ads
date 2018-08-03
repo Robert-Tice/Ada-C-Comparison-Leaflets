@@ -14,7 +14,8 @@ package Stack_Container is
 
    function Size (Self : Stack) return Natural;
 
-   procedure Pop (Self : in out Stack; Data : out Element_Type)
+   procedure Pop (Self : in out Stack;
+                  Data : out Element_Type)
      with Pre  => not Is_Empty (Self),
           Post => not Is_Full (Self) and
                   Size (Self) = Size (Self)'Old - 1 and
