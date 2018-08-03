@@ -6,8 +6,8 @@ project Balanced_Brackets is
    for Languages use ("Ada", "C");
 
    package Compiler is
-       for Switches ("Ada") use ("-gnata", "-gnatwa");
-    end Compiler;
+      for Switches ("Ada") use ("-gnata", "-gnatwa");
+   end Compiler;
 
    package Builder is
       for Executable ("balanced_brackets.c") use "c_balanced_brackets";
@@ -15,4 +15,3 @@ project Balanced_Brackets is
    end Builder;
 
 end Balanced_Brackets;
-
