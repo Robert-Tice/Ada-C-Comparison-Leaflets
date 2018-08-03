@@ -17,15 +17,17 @@ is
    procedure BubbleSort (Arr : in out Array_Type)
    is
    begin
-      for I in Arr'First .. Arr'Last - 1 loop
-         for J in Arr'First .. Arr'Last - I - 1 loop
-            if Arr (J) > Arr (J + 1) then
-               Swap (Arr => Arr,
-                     X   => J,
-                     Y   => J + 1);
-            end if;
+      if Arr'Length > 1 then
+         for I in Arr'First .. Arr'Last - 1 loop
+            for J in Arr'First .. Arr'Last - I - 1 loop
+               if Arr (J) > Arr (J + 1) then
+                  Swap (Arr => Arr,
+                        X   => J,
+                        Y   => J + 1);
+               end if;
+            end loop;
          end loop;
-      end loop;
+      end if;
    end BubbleSort;
 
    procedure PrintArray (Arr : Array_Type)

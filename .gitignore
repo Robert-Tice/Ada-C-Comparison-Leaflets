@@ -9,5 +9,6 @@
 
 .DS_Store
 
-*.db
+*.db*
 *.xml
+*.cgpr
